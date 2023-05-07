@@ -1,6 +1,7 @@
 use clap::Parser;
-use rgpt::gpt;
+use rgpt::gpt::GPT;
 
 fn main() {
-    gpt::GPT::parse();
+    GPT::run();
+    GPT::build(GPT::parse());
 }

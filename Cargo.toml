@@ -10,3 +10,7 @@ description = "Cli tool to interact with chatgpt"
 
 [dependencies]
 clap = { version = "4.2.7", features = ["derive"] }
+directories = "5.0.1"
+eyre = "0.6.8"
+serde = { version = "1.0.162", features = ["derive"] }
+toml = "0.7.3"

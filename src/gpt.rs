@@ -1,3 +1,4 @@
+use crate::config;
 use clap::Parser;
 
 #[derive(Parser)]
@@ -7,8 +8,7 @@ pub struct GPT {
     /// Your API key for OpenAPI
     #[arg(long)]
     api: Option<String>,
-    
-    
+
     #[arg(long)]
     chat: Option<String>,
 
@@ -18,7 +18,10 @@ pub struct GPT {
 }
 
 impl GPT {
-    pub fn init() {
-
+    pub fn run() {
+        config::Config::make_config();
+    }
+    pub fn build(self) {
+        panic!("here");
     }
 }
