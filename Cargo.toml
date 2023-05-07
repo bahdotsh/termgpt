@@ -1,7 +1,10 @@
 [package]
 name = "rgpt"
+authors = ["Gokul <@bahdotsh>"]
 version = "0.1.0"
 edition = "2021"
+description = "Cli tool to interact with chatgpt"
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

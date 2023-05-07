@@ -1,18 +1,24 @@
 use clap::Parser;
 
 #[derive(Parser)]
-#[command(
-    author = "Gokul <@bahdotsh>",
-    version,
-    about = "Cli tool to interact with chatgpt"
-)]
+#[command(author, version, about, long_about = None)]
+#[command(arg_required_else_help = true)]
 pub struct GPT {
-    #[clap(long)]
+    /// Your API key for OpenAPI
+    #[arg(long)]
     api: Option<String>,
-
-    #[clap(long)]
+    
+    
+    #[arg(long)]
     chat: Option<String>,
 
+    /// Execute the commands generated
     #[clap(long, short)]
     exec: bool,
+}
+
+impl GPT {
+    pub fn init() {
+
+    }
 }
