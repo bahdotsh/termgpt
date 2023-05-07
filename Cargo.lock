@@ -320,6 +320,7 @@ dependencies = [
  "eyre",
  "serde",
  "toml",
+ "toml_edit",
 ]
 
 [[package]]

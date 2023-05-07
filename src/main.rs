@@ -3,5 +3,5 @@ use rgpt::gpt::GPT;
 
 fn main() {
     GPT::run();
-    GPT::build(GPT::parse());
+    let _ = GPT::build(GPT::parse());
 }

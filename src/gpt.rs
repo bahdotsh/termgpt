@@ -21,7 +21,13 @@ impl GPT {
     pub fn run() {
         config::Config::make_config();
     }
-    pub fn build(self) {
-        panic!("here");
+    pub fn build(self) -> Result<(), &'static str> {
+        let api = match self.api {
+            Some(args) => args,
+            None => return Err("Invalid API key"),
+        };
+
+        let _ = config::Config::set_config("api", api);
+        Ok(())
     }
 }
