@@ -1,4 +1,5 @@
-pub mod gpt
-pub mod utilities
+pub mod gpt;
+pub mod utils;
+pub mod config;
 
 

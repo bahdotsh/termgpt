@@ -1,3 +1,6 @@
+use clap::Parser;
+use rgpt::gpt;
+
 fn main() {
-    println!("Hello, world!");
+    gpt::GPT::parse();
 }
