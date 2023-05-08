@@ -88,7 +88,7 @@ termgpt How do I delete a file
 termgpt How can I search for a specific string in a file
 termgpt How do I copy a file to a different location
 termgpt How can I see the contents of a file
-termgpt How do I move a file to a different location?
+termgpt How do I move a file to a different location
 termgpt How can I change the permissions of a file or directory
 ```
 
