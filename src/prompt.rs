@@ -53,6 +53,7 @@ Prompt: {}",
 
 #[tokio::main]
 pub async fn prompt(prp: &str, api: &str, exec: bool) -> Result<(), Box<dyn Error>> {
+    println!("Initiating contact with ChatGPT🤖 🚀...may the bits be ever in our favor 🖖");
     let client = Client::new().with_api_key(api);
     let prompt = get_prompt(prp);
 
@@ -82,7 +83,7 @@ pub async fn prompt(prp: &str, api: &str, exec: bool) -> Result<(), Box<dyn Erro
     println!("{}", content);
 
     if exec {
-        println!("\nExecuting...");
+        println!("\nExecuting..🚀\n");
         let result = Command::new("bash")
             .arg("-c")
             .arg(content)
