@@ -1,5 +1,5 @@
 use clap::Parser;
-use rgpt::gpt::GPT;
+use termgpt::gpt::GPT;
 
 fn main() {
     GPT::run();
