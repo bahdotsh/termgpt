@@ -4,6 +4,12 @@ authors = ["Gokul <@bahdotsh>"]
 version = "0.1.0"
 edition = "2021"
 description = "Cli tool to interact with chatgpt"
+documentation = "https://github.com/bahdotsh/rgpt"
+homepage = "https://github.com/bahdotsh/rgpt"
+repository = "https://github.com/bahdotsh/rgpt"
+keywords = ["openai", "cli", "rust", "assistant", "ai-tools"]
+categories = ["command-line-utilities", "chatgpt", "ai-tools"]
+license = "Unlicense OR MIT"
 
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
