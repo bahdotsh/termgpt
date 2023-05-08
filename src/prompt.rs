@@ -78,7 +78,7 @@ pub async fn prompt(prp: &str, api: &str) -> Result<(), Box<dyn Error>> {
         .map(|choice| choice.message.content.clone())
         .unwrap_or_else(|| "".to_string());
 
-    println!("Contesdfsdfsfnt: {}", content);
+    println!("{}", content);
 
     Ok(())
 }

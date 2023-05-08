@@ -24,13 +24,13 @@ impl GPT {
     }
     pub fn build(mut self) -> Result<(), &'static str> {
         if let Some(api) = self.api.take() {
-            if let err = config::Config::set_config("api", api) {
+            if let Err(err) = config::Config::set_config("api", api) {
                 eprintln!("{:#?}", err);
             }
         }
         if let Some(prompt) = self.chat.take() {
             let api = config::Config::get_api_config();
-            if let err = prompt::prompt(&prompt, &api) {
+            if let Err(err) = prompt::prompt(&prompt, &api) {
                 eprintln!("{:#?}", err);
             }
         }
