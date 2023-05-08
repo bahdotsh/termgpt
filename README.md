@@ -26,6 +26,12 @@ cd termgpt
 cargo install --path .
 ```
 
+### Homebrew
+```bash
+brew tap bahdotsh/termgpt
+brew install termgpt
+```
+
 ## Usage
 
 For the first time you have to to enter your [OpenAI API key](https://platform.openai.com/account/api-keys). 
