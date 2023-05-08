@@ -8,6 +8,7 @@ Interact with ChatGPT from your terminal! 🚀🤖
 
 </div>
 
+
 ## Install
 
 ### Cargo
@@ -41,7 +42,7 @@ To be reused later
 
 ### Questions
 
-You can ask any question to ChatGPT with rgpt (try avoiding the use of '?' for now).
+For now you can ask ChatGPT anything related to managing your operating system or writing code. Eventually you'll be able to ask any question to ChatGPT (couple more prompts to go) with rgpt (P.S try to avoid using '?' at the end of your questions for now).
 
 ```bash
 rgpt <any question>
@@ -62,8 +63,19 @@ rgpt --help
 ```
 
 
-## Examples
-
+## Example questions
+```
+rgpt How do I list all files in the current directory
+rgpt How can I find the number of lines in a file
+rgpt How do I create a new directory
+rgpt How can I check the available disk space
+rgpt How do I delete a file
+rgpt How can I search for a specific string in a file
+rgpt How do I copy a file to a different location
+rgpt How can I see the contents of a file
+rgpt How do I move a file to a different location?
+rgpt How can I change the permissions of a file or directory
+```
 
 ## License
 
