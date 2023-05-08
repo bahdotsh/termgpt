@@ -4,6 +4,7 @@ use std::any::Any;
 use std::fs::{self, File};
 use std::io::{self, Write};
 use toml_edit::{value, Document};
+use std::process;
 
 #[derive(Deserialize, Debug)]
 pub struct Config {
@@ -45,23 +46,23 @@ impl Config {
         }
     }
     pub fn get_api_config() -> String {
-        let dir = ProjectDirs::from("", "", "rgpt").unwrap();
+        let dir = ProjectDirs::from("", "", "rgpt").unwrap_or_else(|| {
+            eprintln!("Failed to get configuration directory");
+            process::exit(1);
+        });
         let config_dir = dir.config_dir();
 
-        let config_file = fs::read_to_string(config_dir.join("config.toml")).unwrap();
+        let config_file = fs::read_to_string(config_dir.join("config.toml")).unwrap_or_else(|err| {
+            eprintln!("Unable to open config file: {}", err);
+            process::exit(1);
+        });
 
-        let config: Config = toml::from_str(&config_file).unwrap();
+        let config: Config = toml::from_str(&config_file).unwrap_or_else(|err| {
+            eprintln!("Unable to parse config file: {}", err);
+            process::exit(1);
+        });
 
         config.api
     }
 
-    pub fn open_config_dir() {
-        if let Some(dir) = ProjectDirs::from("", "", ".rgpt") {
-            let config_dir = dir.config_dir();
-
-            let config_file = fs::read_to_string(config_dir.join("config.toml")).unwrap();
-
-            let _config: Config = toml::from_str(&config_file).unwrap();
-        }
-    }
 }
