@@ -80,7 +80,7 @@ pub async fn prompt(prp: &str, api: &str, exec: bool) -> Result<(), Box<dyn Erro
         .map(|choice| choice.message.content.clone())
         .unwrap_or_else(|| "".to_string());
 
-    println!("{}", content);
+    println!("\n\nI'm sorry, Dave, I'm afraid I can't do that.🤖 \n\n\n\nJust kidding here you go!🤭  {}", content);
 
     if exec {
         println!("\nExecuting..🚀\n");
