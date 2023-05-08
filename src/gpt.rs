@@ -10,8 +10,7 @@ pub struct GPT {
     #[arg(long)]
     api: Option<String>,
 
-    #[arg(long)]
-    chat: Option<String>,
+    chat: Option<Vec<String>>,
 
     /// Execute the commands generated
     #[clap(long, short)]
@@ -28,7 +27,8 @@ impl GPT {
                 eprintln!("{:#?}", err);
             }
         }
-        if let Some(prompt) = self.chat.take() {
+        if let Some(vecprompt) = self.chat.take() {
+            let prompt = vecprompt.join(" ");
             let api = config::Config::get_api_config();
             if let Err(err) = prompt::prompt(&prompt, &api) {
                 eprintln!("{:#?}", err);
