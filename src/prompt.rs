@@ -6,6 +6,7 @@ use os_info;
 use std::env;
 use std::error::Error;
 use std::path::PathBuf;
+use std::process::{ self, Command } ;
 
 pub fn get_os_name() -> String {
     os_info::get().to_string()
@@ -51,7 +52,7 @@ Prompt: {}",
 }
 
 #[tokio::main]
-pub async fn prompt(prp: &str, api: &str) -> Result<(), Box<dyn Error>> {
+pub async fn prompt(prp: &str, api: &str, exec: bool) -> Result<(), Box<dyn Error>> {
     let client = Client::new().with_api_key(api);
     let prompt = get_prompt(prp);
 
@@ -79,6 +80,31 @@ pub async fn prompt(prp: &str, api: &str) -> Result<(), Box<dyn Error>> {
         .unwrap_or_else(|| "".to_string());
 
     println!("{}", content);
+
+    if exec {
+        println!("\nExecuting...\n\n--------------\n\n");
+        let status = Command::new("bash")
+            .arg("-c")
+            .arg(content)
+            .output()
+            .expect("Failed to execute!");
+        if !status.stderr.is_empty() {
+            eprintln!(
+                "{}",
+                String::from_utf8(status.stderr)
+                    .expect("Could not parse script stderr output as UTF-8")
+            );
+        } else {
+            println!(
+                "{}",
+                String::from_utf8(status.stdout)
+                    .expect("Could not parse script stdout output as UTF-8")
+            );
+        }
+        if !status.status.success() {
+            process::exit(1);
+        }
+    }
 
     Ok(())
 }

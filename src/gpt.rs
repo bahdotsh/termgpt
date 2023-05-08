@@ -30,7 +30,7 @@ impl GPT {
         if let Some(vecprompt) = self.chat.take() {
             let prompt = vecprompt.join(" ");
             let api = config::Config::get_api_config();
-            if let Err(err) = prompt::prompt(&prompt, &api) {
+            if let Err(err) = prompt::prompt(&prompt, &api, self.exec) {
                 eprintln!("{:#?}", err);
             }
         }
