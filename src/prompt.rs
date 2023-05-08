@@ -82,26 +82,26 @@ pub async fn prompt(prp: &str, api: &str, exec: bool) -> Result<(), Box<dyn Erro
     println!("{}", content);
 
     if exec {
-        println!("\nExecuting...\n\n--------------\n\n");
-        let status = Command::new("bash")
+        println!("\nExecuting...");
+        let result = Command::new("bash")
             .arg("-c")
             .arg(content)
             .output()
             .expect("Failed to execute!");
-        if !status.stderr.is_empty() {
+        if !result.stderr.is_empty() {
             eprintln!(
                 "{}",
-                String::from_utf8(status.stderr)
+                String::from_utf8(result.stderr)
                     .expect("Could not parse script stderr output as UTF-8")
             );
         } else {
             println!(
                 "{}",
-                String::from_utf8(status.stdout)
+                String::from_utf8(result.stdout)
                     .expect("Could not parse script stdout output as UTF-8")
             );
         }
-        if !status.status.success() {
+        if !result.status.success() {
             process::exit(1);
         }
     }
