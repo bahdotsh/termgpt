@@ -914,22 +914,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "rgpt"
-version = "0.1.0"
-dependencies = [
- "async-openai",
- "clap",
- "directories",
- "eyre",
- "futures",
- "os_info",
- "serde",
- "tokio",
- "toml",
- "toml_edit",
-]
-
-[[package]]
 name = "ring"
 version = "0.16.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1142,6 +1126,22 @@ dependencies = [
  "proc-macro2",
  "quote",
  "unicode-ident",
+]
+
+[[package]]
+name = "termgpt"
+version = "0.1.0"
+dependencies = [
+ "async-openai",
+ "clap",
+ "directories",
+ "eyre",
+ "futures",
+ "os_info",
+ "serde",
+ "tokio",
+ "toml",
+ "toml_edit",
 ]
 
 [[package]]
