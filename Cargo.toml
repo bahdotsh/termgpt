@@ -18,3 +18,4 @@ serde = { version = "1.0.162", features = ["derive"] }
 tokio = { version = "1.28.0" , features = ["rt", "rt-multi-thread", "macros"] }
 toml = "0.7.3"
 toml_edit = "0.19.8"
+os_info = { version = "3", default-features = false }
