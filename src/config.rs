@@ -7,7 +7,7 @@ use toml_edit::{value, Document};
 
 #[derive(Deserialize, Debug)]
 pub struct Config {
-    pub token: String,
+    pub api: String,
 }
 
 impl Config {
@@ -44,14 +44,15 @@ impl Config {
             return Err(io::Error::new(io::ErrorKind::Other, "An error occurred."));
         }
     }
-    pub fn get_config() {
-        if let Some(dir) = ProjectDirs::from("", "", ".rgpt") {
-            let config_dir = dir.config_dir();
+    pub fn get_api_config() -> String {
+        let dir = ProjectDirs::from("", "", "rgpt").unwrap();
+        let config_dir = dir.config_dir();
 
-            let config_file = fs::read_to_string(config_dir.join("config.toml")).unwrap();
+        let config_file = fs::read_to_string(config_dir.join("config.toml")).unwrap();
 
-            let _config: Config = toml::from_str(&config_file).unwrap();
-        }
+        let config: Config = toml::from_str(&config_file).unwrap();
+
+        config.api
     }
 
     pub fn open_config_dir() {

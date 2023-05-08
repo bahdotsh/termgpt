@@ -9,9 +9,13 @@ description = "Cli tool to interact with chatgpt"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+async-openai = "0.10.3"
 clap = { version = "4.2.7", features = ["derive"] }
 directories = "5.0.1"
 eyre = "0.6.8"
+fieri = "0.7.0"
+futures = "0.3.28"
 serde = { version = "1.0.162", features = ["derive"] }
+tokio = "1.28.0"
 toml = "0.7.3"
 toml_edit = "0.19.8"

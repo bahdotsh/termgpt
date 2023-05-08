@@ -1,4 +1,5 @@
 use crate::config;
+use crate::prompt;
 use clap::Parser;
 
 #[derive(Parser)]
@@ -21,13 +22,19 @@ impl GPT {
     pub fn run() {
         config::Config::make_config();
     }
-    pub fn build(self) -> Result<(), &'static str> {
-        let api = match self.api {
-            Some(args) => args,
-            None => return Err("Invalid API key"),
-        };
+    pub fn build(mut self) -> Result<(), &'static str> {
+        if let Some(api) = self.api.take() {
+            if let err = config::Config::set_config("api", api) {
+                println!("{:#?}", err);
+            }
+        }
+        if let Some(prompt) = self.chat.take() {
+            let api = config::Config::get_api_config();
+            if let err = prompt::prompt(&prompt, &api) {
+                println!("{:#?}", err);
+            }
+        }
 
-        let _ = config::Config::set_config("api", api);
         Ok(())
     }
 }
