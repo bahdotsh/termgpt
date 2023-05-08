@@ -13,7 +13,7 @@ pub struct Config {
 
 impl Config {
     pub fn make_config() {
-        if let Some(dir) = ProjectDirs::from("", "", "rgpt") {
+        if let Some(dir) = ProjectDirs::from("", "", "termgpt") {
             let config_dir = dir.config_dir();
             if !config_dir.exists() {
                 fs::create_dir(config_dir).unwrap();
@@ -28,7 +28,7 @@ impl Config {
         name: &str,
         new_content: T,
     ) -> Result<(), std::io::Error> {
-        let dir = ProjectDirs::from("", "", "rgpt").unwrap();
+        let dir = ProjectDirs::from("", "", "termgpt").unwrap();
         let config_dir = dir.config_dir();
         if config_dir.exists() {
             let config_file = fs::read_to_string(config_dir.join("config.toml"))?;
@@ -46,7 +46,7 @@ impl Config {
         }
     }
     pub fn get_api_config() -> String {
-        let dir = ProjectDirs::from("", "", "rgpt").unwrap_or_else(|| {
+        let dir = ProjectDirs::from("", "", "termgpt").unwrap_or_else(|| {
             eprintln!("Failed to get configuration directory");
             process::exit(1);
         });

@@ -25,7 +25,7 @@ pub fn get_prompt(prompt: &str) -> String {
     let os = get_os_name();
     let shell = get_shell_name();
     format!(
-        "You are the best Command Line App RGPT, a programming and system administration assistant.
+        "You are the best Command Line App TERMGPT, a programming and system administration assistant.
 You are managing {} operating system with {} shell.
 Do not show any warnings or information regarding your capabilities.
 If you need to store any data, assume it will be stored in the chat.

@@ -1,7 +1,7 @@
 [package]
 name = "termgpt"
 authors = ["Gokul <@bahdotsh>"]
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "A cli tool to interact with ChatGPT"
 documentation = "https://github.com/bahdotsh/termgpt"
