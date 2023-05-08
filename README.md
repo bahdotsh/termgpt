@@ -33,11 +33,12 @@ For the first time you have to to enter your [OpenAI API key](https://platform.o
 ```
 rgpt --api <your api-key>
 ```
-This key will then be saved to 
-  // Linux:   /home/alice/.config/rgpt
-  // Windows: C:\Users\Alice\AppData\Roaming\Foo Corp\rgpt
-  // macOS:   /Users/Alice/Library/Application Support/rgpt
-
+This key will then be saved to: 
+```
+// Linux:   /home/alice/.config/rgpt
+// Windows: C:\Users\Alice\AppData\Roaming\Foo Corp\rgpt
+// macOS:   /Users/Alice/Library/Application Support/rgpt
+```
 To be reused later
 
 ### Questions
@@ -60,6 +61,20 @@ rgpt --exec list all the files in this folder
 
 ```bash
 rgpt --help
+
+
+A cli tool to interact with ChatGPT
+
+Usage: rgpt [OPTIONS] [CHAT]...
+
+Arguments:
+  [CHAT]...
+
+Options:
+      --api <API>  Your API key for OpenAPI
+  -e, --exec       Execute the commands generated
+  -h, --help       Print help
+  -V, --version    Print version
 ```
 
 
