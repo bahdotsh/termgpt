@@ -1130,7 +1130,7 @@ dependencies = [
 
 [[package]]
 name = "termgpt"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "async-openai",
  "clap",
