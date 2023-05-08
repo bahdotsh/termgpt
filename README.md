@@ -77,6 +77,11 @@ rgpt How do I move a file to a different location?
 rgpt How can I change the permissions of a file or directory
 ```
 
+## Inspirations
+
+- [shell-gpt](https://github.com/TheR1D/shell_gpt)
+- [shell-gpt-rs](https://github.com/rigwild/shell-gpt-rs)
+
 ## License
 
 The MIT license
